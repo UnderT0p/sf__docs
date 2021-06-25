@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>A Pelican Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-06-25T14:00:00+00:00</updated><entry><title>documentation</title><link href="/documentation.html" rel="alternate"></link><published>2021-06-25T14:00:00+00:00</published><updated>2021-06-25T14:00:00+00:00</updated><author><name></name></author><id>tag:None,2021-06-25:/documentation.html</id><summary type="html">&lt;h2&gt;Развернуть Wordpress на своей Linux-машине&lt;/h2&gt;
+&lt;h3&gt;Будем разворачивать Docker контейнеры с wordpress и mysql.&lt;/h3&gt;
+&lt;h3&gt;Список действий для успешного развертывания:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;склонировать себе репозиторий:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone https://github.com/UnderT0p/sf__wordpress_experimental
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;перейти в него&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cd sf__wordpress_experimental
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;запустить скрипт, который развернет два контейнера&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;bash install_up.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ввести в браузер и убедиться что работает&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;localhost …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h2&gt;Развернуть Wordpress на своей Linux-машине&lt;/h2&gt;
+&lt;h3&gt;Будем разворачивать Docker контейнеры с wordpress и mysql.&lt;/h3&gt;
+&lt;h3&gt;Список действий для успешного развертывания:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;склонировать себе репозиторий:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone https://github.com/UnderT0p/sf__wordpress_experimental
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;перейти в него&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cd sf__wordpress_experimental
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;запустить скрипт, который развернет два контейнера&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;bash install_up.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ввести в браузер и убедиться что работает&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;8000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Бекапы&lt;/h2&gt;
+&lt;h2&gt;Для создания бекапа нужной папки и отправки его в яндекс диск сделать следующее:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;установка утилиты davfs2 для монтирования сетевых облачных хранилищ по протоколу WebDAV для дебиан и убунту&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt-get install davfs2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Сгенерировать пароль приложения пдробнее тут &lt;code&gt;https://ploshadka.net/yandex_password_apps&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;В файл &lt;code&gt;/etc/davfs2/secrets&lt;/code&gt; необходимо добавить строку:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://webdav.yandex.ru логин_Яндекса пароль_приложения
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;запустить скрипт backup_yandex.sh с нужной директорией в качестве параметра(/var/www/html - пример),
+указанная папка заархивируется утилитой tar.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;bash&lt;/span&gt; &lt;span class="n"&gt;backup_yandex&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;В итоге мы получим архив на яндекс диске такого формата - backup_2021-06-18-15-22.tgz.&lt;/h3&gt;
+&lt;h2&gt;Деплой на продакшн&lt;/h2&gt;
+&lt;h2&gt;Для запуска на целевой машине заготовки WordPress (sf__wordpress_experimental) нужно:&lt;/h2&gt;
+&lt;p&gt;-клонированть этот репозиторий себе на хост&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone https://github.com/UnderT0p/sf__wordpress_staging
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;-отредактированть файл user.txt, внеся в него данные о целевой машине и пользователе&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;UserName&lt;/span&gt;&lt;span class="nv"&gt;@IP_adress&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;-запустить скрипт&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;bash deploy.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;Скрипт расчитан на три вида ОС Debian Ubunto или CentOS. В ином случае вы получите сообщение "Sorry we don't know your os"&lt;/h3&gt;
+&lt;h4&gt;Спасибо за внимание.&lt;/h4&gt;</content><category term="misc"></category></entry></feed>

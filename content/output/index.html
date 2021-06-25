@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>A Pelican Blog</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="A Pelican Blog Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">A Pelican Blog</a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/documentation.html">documentation</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-06-25T14:00:00+00:00">
+                Published: Fri 25 June 2021
+        </abbr>
+
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info --><h2>Развернуть Wordpress на своей Linux-машине</h2>
+<h3>Будем разворачивать Docker контейнеры с wordpress и mysql.</h3>
+<h3>Список действий для успешного развертывания:</h3>
+<ul>
+<li>склонировать себе репозиторий:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/UnderT0p/sf__wordpress_experimental
+</code></pre></div>
+
+<ul>
+<li>перейти в него</li>
+</ul>
+<div class="highlight"><pre><span></span><code>cd sf__wordpress_experimental
+</code></pre></div>
+
+<ul>
+<li>запустить скрипт, который развернет два контейнера</li>
+</ul>
+<div class="highlight"><pre><span></span><code>bash install_up.sh
+</code></pre></div>
+
+<ul>
+<li>ввести в браузер и убедиться что работает</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">localhost</span><span class="o">:</span><span class="mi">8000</span>
+</code></pre></div>
+
+<h2>Бекапы</h2>
+<h2>Для создания бекапа нужной папки и отправки его в яндекс диск сделать следующее:</h2>
+<ul>
+<li>установка утилиты davfs2 для монтирования сетевых облачных хранилищ по протоколу WebDAV для дебиан и убунту</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo apt-get install davfs2
+</code></pre></div>
+
+<ul>
+<li>
+<p>Сгенерировать пароль приложения пдробнее тут <code>https://ploshadka.net/yandex_password_apps</code>.</p>
+</li>
+<li>
+<p>В файл <code>/etc/davfs2/secrets</code> необходимо добавить строку:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>https://webdav.yandex.ru логин_Яндекса пароль_приложения
+</code></pre></div>
+
+<ul>
+<li>запустить скрипт backup_yandex.sh с нужной директорией в качестве параметра(/var/www/html - пример),
+указанная папка заархивируется утилитой tar.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">bash</span> <span class="n">backup_yandex</span><span class="o">.</span><span class="n">sh</span> <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span>
+</code></pre></div>
+
+<h3>В итоге мы получим архив на яндекс диске такого формата - backup_2021-06-18-15-22.tgz.</h3>
+<h2>Деплой на продакшн</h2>
+<h2>Для запуска на целевой машине заготовки WordPress (sf__wordpress_experimental) нужно:</h2>
+<p>-клонированть этот репозиторий себе на хост</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/UnderT0p/sf__wordpress_staging
+</code></pre></div>
+
+<p>-отредактированть файл user.txt, внеся в него данные о целевой машине и пользователе</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">user</span><span class="o">=</span><span class="n">UserName</span><span class="nv">@IP_adress</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>-запустить скрипт</p>
+<div class="highlight"><pre><span></span><code>bash deploy.sh
+</code></pre></div>
+
+<h3>Скрипт расчитан на три вида ОС Debian Ubunto или CentOS. В ином случае вы получите сообщение "Sorry we don't know your os"</h3>
+<h4>Спасибо за внимание.</h4>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
